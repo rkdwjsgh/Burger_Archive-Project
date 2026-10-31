@@ -34,8 +34,6 @@ export default function DetailPanel({ burger, onClose }) {
     return () => window.removeEventListener('keydown', onKey);
   }, [onClose]);
 
-  const isRegular = burger.menuType === 'regular';
-
   return (
     <aside className="detail-panel" aria-label={`${burger.fullName} 상세`}>
       <button className="detail-close" onClick={onClose} aria-label="닫기">✕</button>
@@ -90,7 +88,7 @@ export default function DetailPanel({ burger, onClose }) {
         <InfoIcon />
         <span>{DETAIL.noteLabel}</span>
         <span className="detail-tooltip" role="tooltip">
-          {isRegular ? DETAIL.note.regular : DETAIL.note.limited}
+          {DETAIL.note}
         </span>
       </div>
     </aside>

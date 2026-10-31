@@ -148,6 +148,7 @@
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.12s;
+  white-space: pre-line; /* 문구 속 \n을 줄바꿈으로 표시 */
 }
 /* 말풍선 꼬리 (위쪽 ⓘ를 가리킴) */
 .detail-tooltip::before {
