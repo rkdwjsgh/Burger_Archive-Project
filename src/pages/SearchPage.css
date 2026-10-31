@@ -10,6 +10,7 @@
 
 .search-wrap {
   --content-width: 880px; /* 내용 너비 (화면 약 2/3) */
+  --filter-bar-h: 60px;   /* 고정되는 필터 줄 높이 (표 제목이 그 바로 아래 붙음) */
 
   width: min(var(--content-width), calc(100% - 32px));
   margin: 0 auto;
@@ -40,10 +41,15 @@
 
 /* 필터 한 줄 */
 .search-filters {
+  position: sticky;      
+  top: 0;                
+  z-index: 5;            
+  height: var(--filter-bar-h);  
   margin-top: 16px;
   display: flex;
   align-items: center;
   gap: 8px;
+  background: #f6f4ef;
 }
 .filter-spacer {
   flex: 1; /* 검색창을 오른쪽 끝으로 밀어내는 여백 */
@@ -52,16 +58,20 @@
 /* 표 */
 .search-table {
   width: 100%;
-  margin-top: 14px;
+  margin-top: 2px;
   border-collapse: collapse;
 }
 .search-table th {
-  padding: 0 14px 8px;
-  border-bottom: 1px solid #e0dbd0;
+  position: sticky;
+  top: var(--filter-bar-h);
+  z-index: 4;
+  padding: 8px 14px;
+  background: #f6f4ef;
+  box-shadow: inset 0 -1px 0 #e0dbd0;
   font-size: 12px;
   font-weight: 500;
   color: #a39d91;
-  text-align: left;
+  text-align: left
 }
 .search-table th.right {
   text-align: right;

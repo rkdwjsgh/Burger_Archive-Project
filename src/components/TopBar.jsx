@@ -57,7 +57,7 @@ export function YearSelect({ years, currentYear, onSelect }) {
 // 페이지 탭 목록 (탭 이름은 여기서 수정)
 const PAGES = [
   { id: 'road', label: '버거 로드' },
-  { id: 'search', label: '조회' },
+  { id: 'search', label: '버거 조회' },
 ];
 
 // 상단바: 왼쪽 ⓘ + 페이지 탭, 오른쪽은 페이지마다 다른 내용(children)
