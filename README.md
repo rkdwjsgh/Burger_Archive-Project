@@ -1,16 +1,33 @@
-# React + Vite
+# 🍔 버거 아카이브
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+2024년부터 먹어본 버거 기록을 모은 개인 아카이브
 
-Currently, two official plugins are available:
+## 페이지
+- 버거 로드: 먹은 순서대로 펼쳐진 타임라인 지도
+- 버거 조회: 브랜드·연도·별점 필터와 키워드 검색
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 설계하면서 고민한 점
 
-## React Compiler
+### 점수를 어떻게 보여줄까
+- 점수가 2~3점대에 몰려 있어 그대로 색을 입히면 차이가 안 보였다.
+  → 1점과 4점을 색의 양 끝(빨강·초록)으로 고정해 보정했다.
+- 가운데 색을 노랑으로 하면 브랜드 색(맥도날드)과 겹쳐 회색으로 바꿨다.
+- 점수만으로는 "또 먹고 싶은 메뉴"가 드러나지 않아 👍 추천 표시를 따로 뒀다.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 무엇을 검색으로, 무엇을 필터로 할까
+- 별점은 입력보다 고르는 게 자연스러워 구간 필터로,
+  추천은 반대로 필터 대신 "추천" 검색어로 찾게 했다.
+- `메뉴명:새우`처럼 범위를 지정하는 키:값 검색을 넣고, 키가 없으면 전체를 찾는다.
+- 자동완성은 메뉴만 보여주고, 누르면 바로 상세 정보가 열린다.
 
-## Expanding the ESLint configuration
+### UI
+카드 텍스트 최소화, 옆 슬라이드 상세 패널, 고정 필터 바 등
+보기 편하도록 세부적인 부분을 여러 차례 다듬었다.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## 사용 기술
+React, Vite, React Flow
+
+## 실행 방법
+npm install
+npm run dev
