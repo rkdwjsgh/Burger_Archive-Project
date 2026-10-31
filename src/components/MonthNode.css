@@ -1,0 +1,22 @@
+.month-node {
+  position: relative; /* 라벨을 이 점 기준으로 띄우기 위해 */
+  width: 8px;
+  height: 8px;
+}
+
+.month-dot {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #cfc8ba;
+}
+
+.month-label {
+  position: absolute;
+  white-space: nowrap;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1e1e1e;
+  pointer-events: none; /* 라벨이 클릭을 가로채지 않게 */
+}

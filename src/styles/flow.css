@@ -1,0 +1,26 @@
+/* 여러 노드가 같이 쓰는 스타일과 선(엣지) 스타일 */
+
+/* 연결점은 위치만 쓰고 화면에는 숨김 */
+.hidden-handle {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* 시간축: 월 점 ↔ 월 점 (점선) */
+.spine-edge .react-flow__edge-path {
+  stroke: #cfc8ba;
+  stroke-width: 2;
+  stroke-dasharray: 6 6;
+}
+
+/* 가지: 월 점 → 카드 (실선 곡선) */
+.branch-edge .react-flow__edge-path {
+  stroke: #cfc8ba;
+  stroke-width: 1.5;
+}
+
+/* 보기 전용 설정(선택·끌기 끔)이면 React Flow가 노드의 마우스 반응을 꺼버림
+   카드는 마우스를 올렸을 때 떠오르는 효과와 툴팁이 필요하므로 다시 켬 */
+.react-flow__node-burger {
+  pointer-events: all !important;
+}

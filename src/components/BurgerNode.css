@@ -1,0 +1,75 @@
+.burger-card {
+  box-sizing: border-box; /* padding·테두리를 크기 안에 포함 */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 12px 10px 14px;
+  background: #ffffff;
+  border: 1px solid #e6e2d8;
+  border-left: 6px solid var(--rating-color); /* 점수 색띠 */
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(60, 40, 10, 0.08);
+  font-family: inherit;
+  color: #1e1e1e;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.burger-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(60, 40, 10, 0.14);
+}
+
+/* 첫 줄 */
+.card-top {
+  display: flex;
+  align-items: center;
+}
+.card-date {
+  margin-left: auto;
+  font-size: 11px;
+  color: #b3ada2;
+}
+
+/* 메뉴 이름 */
+.menu-name {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.3px;
+  word-break: keep-all;
+  /* 두 줄까지만 보이고 넘치면 … */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.nowrap {
+  white-space: nowrap; /* 이 덩어리 안에서는 줄이 바뀌지 않음 */
+}
+
+/* 마지막 줄: 카드 맨 아래에 고정, 높이 고정으로 별 위치 통일 */
+.card-bottom {
+  margin-top: auto;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.stars {
+  display: inline-flex;
+  color: #f5b82e;
+}
+.star {
+  display: inline-block;
+  overflow: hidden; /* width를 줄이면 별이 잘려서 일부만 보임 */
+  line-height: 0;
+}
+.score {
+  font-size: 11px;
+  color: #8a8478;
+}
+.card-bottom .thumb-icon {
+  margin-left: auto; /* 추천 아이콘은 오른쪽 끝으로 */
+}
