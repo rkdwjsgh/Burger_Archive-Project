@@ -32,10 +32,16 @@
 React, Vite, React Flow
 
 ## 실행 방법
+Node.js(LTS)가 설치되어 있어야 합니다.
+
 ```
+git clone https://github.com/rkdwjsgh/Burger_Archive-Project.git
+cd Burger_Archive-Project
 npm install
 npm run dev
 ```
+
+실행 후 터미널에 표시되는 주소(기본 `http://localhost:5173`)로 접속합니다.
 
 ## 작업기
 기획부터 데이터 정리, 디자인 고민까지 자세한 과정은 노션에 정리했음
