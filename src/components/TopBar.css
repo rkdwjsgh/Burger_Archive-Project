@@ -84,3 +84,33 @@
   background: #f1ede4;
   font-weight: 700;
 }
+
+/* 왼쪽 묶음: ⓘ + 페이지 탭 */
+.top-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.page-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 10px;
+  background: #ebe7de;
+}
+.page-tab {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 7px;
+  background: none;
+  color: #6f695e;
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+.page-tab.current {
+  background: #ffffff;
+  color: #1e1e1e;
+  font-weight: 700;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}

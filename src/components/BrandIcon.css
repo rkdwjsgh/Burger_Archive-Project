@@ -1,8 +1,12 @@
 .brand-icon {
-  border-radius: 50%;
   display: grid;
   place-items: center;
-  font-weight: 800;
   letter-spacing: -0.3px;
-  flex-shrink: 0; /* 공간이 좁아도 동그라미가 찌그러지지 않게 */
+  flex-shrink: 0; /* 공간이 좁아도 도형이 찌그러지지 않게 */
+}
+.brand-icon.circle {
+  border-radius: 50%;
+}
+.brand-icon.square {
+  border-radius: 6px;
 }

@@ -1,0 +1,130 @@
+.multi-select {
+  position: relative;
+}
+
+/* 필터 버튼 (정렬 버튼도 같은 모양을 씀) */
+.filter-button {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 12px;
+  border: 1px solid #e0dbd0;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #55504a;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+.filter-button b {
+  color: #1e1e1e;
+  font-weight: 700;
+}
+.filter-button.active {
+  border-color: #55504a;
+}
+.filter-count {
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 9px;
+  background: #1e1e1e;
+  color: #ffffff;
+  font-size: 11px;
+  display: inline-grid;
+  place-items: center;
+}
+.filter-caret {
+  font-size: 11px;
+  color: #8a8478;
+}
+
+/* 펼쳐지는 목록 */
+.filter-menu {
+  position: absolute;
+  top: 42px;
+  left: 0;
+  z-index: 10;
+  min-width: 190px;
+  padding: 6px;
+  background: #ffffff;
+  border: 1px solid #e0dbd0;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(60, 40, 10, 0.12);
+}
+.filter-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 8px;
+  border-radius: 6px;
+  font-size: 13.5px;
+  cursor: pointer;
+}
+.filter-option:hover {
+  background: #f6f4ef;
+}
+/* 진짜 체크박스는 숨기고, 꾸민 네모(.check)를 보여줌 */
+.filter-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.check {
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid #c9c2b4;
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.check.on {
+  background: #1e1e1e;
+  border-color: #1e1e1e;
+}
+.filter-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+  padding: 8px 8px 4px;
+  border-top: 1px solid #efebe3;
+  font-size: 12px;
+  color: #8a8478;
+}
+.filter-footer button {
+  border: none;
+  background: none;
+  color: #8a8478;
+  font: inherit;
+  cursor: pointer;
+}
+.filter-footer button:hover {
+  color: #1e1e1e;
+}
+
+/* 별점 구간 색 네모 */
+.band-swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+/* 정렬 목록의 항목 (체크 없이 하나만 고름) */
+.filter-option.sort {
+  width: 100%;
+  border: none;
+  background: none;
+  font: inherit;
+  font-size: 13.5px;
+  text-align: left;
+}
+.filter-option.sort.current {
+  font-weight: 700;
+  background: #f1ede4;
+}

@@ -13,7 +13,7 @@ function InfoIcon() {
 }
 
 // 연도 선택: 지금 보는 연도를 보여주고, 누르면 목록이 펼쳐짐
-function YearSelect({ years, currentYear, onSelect }) {
+export function YearSelect({ years, currentYear, onSelect }) {
   const [open, setOpen] = useState(false);
   const boxRef = useRef(null);
 
@@ -54,13 +54,33 @@ function YearSelect({ years, currentYear, onSelect }) {
   );
 }
 
-export default function TopBar({ years, currentYear, onSelectYear, onOpenGuide }) {
+// 페이지 탭 목록 (탭 이름은 여기서 수정)
+const PAGES = [
+  { id: 'road', label: '버거 로드' },
+  { id: 'search', label: '조회' },
+];
+
+// 상단바: 왼쪽 ⓘ + 페이지 탭, 오른쪽은 페이지마다 다른 내용(children)
+export default function TopBar({ page, onChangePage, onOpenGuide, children }) {
   return (
     <header className="top-bar">
-      <button className="icon-button" onClick={onOpenGuide} aria-label="페이지 안내" title="페이지 안내">
-        <InfoIcon />
-      </button>
-      <YearSelect years={years} currentYear={currentYear} onSelect={onSelectYear} />
+      <div className="top-left">
+        <button className="icon-button" onClick={onOpenGuide} aria-label="페이지 안내" title="페이지 안내">
+          <InfoIcon />
+        </button>
+        <nav className="page-tabs">
+          {PAGES.map((p) => (
+            <button
+              key={p.id}
+              className={p.id === page ? 'page-tab current' : 'page-tab'}
+              onClick={() => onChangePage(p.id)}
+            >
+              {p.label}
+            </button>
+          ))}
+        </nav>
+      </div>
+      {children}
     </header>
   );
 }

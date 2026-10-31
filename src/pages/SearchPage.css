@@ -1,0 +1,155 @@
+/* 상단바 아래 전체를 쓰고, 내용이 길면 이 안에서 스크롤 */
+.search-page {
+  position: absolute;
+  top: 56px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+}
+
+.search-wrap {
+  --content-width: 880px; /* 내용 너비 (화면 약 2/3) */
+
+  width: min(var(--content-width), calc(100% - 32px));
+  margin: 0 auto;
+  padding: 28px 0 60px;
+  transition: transform 0.2s ease;
+}
+
+/* 상세 패널이 열리면 내용을 왼쪽으로 비켜서 패널에 안 가리게
+   (내용 오른쪽 끝이 '화면 - 패널 너비 380 - 여백 24'보다 안쪽으로 오도록) */
+.search-page.with-panel .search-wrap {
+  transform: translateX(min(0px, calc(50vw - var(--content-width) / 2 - 404px)));
+}
+
+/* 제목 */
+.search-title {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.search-title h1 {
+  margin: 0;
+  font-size: 22px;
+}
+.search-title span {
+  font-size: 13px;
+  color: #8a8478;
+}
+
+/* 필터 한 줄 */
+.search-filters {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.filter-spacer {
+  flex: 1; /* 검색창을 오른쪽 끝으로 밀어내는 여백 */
+}
+
+/* 표 */
+.search-table {
+  width: 100%;
+  margin-top: 14px;
+  border-collapse: collapse;
+}
+.search-table th {
+  padding: 0 14px 8px;
+  border-bottom: 1px solid #e0dbd0;
+  font-size: 12px;
+  font-weight: 500;
+  color: #a39d91;
+  text-align: left;
+}
+.search-table th.right {
+  text-align: right;
+}
+.th-sort {
+  border: none;
+  background: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+.th-sort:hover,
+.th-sort.active {
+  color: #1e1e1e;
+}
+.th-arrow {
+  font-size: 9px;
+  opacity: 0.5;
+}
+.th-sort.active .th-arrow {
+  opacity: 1;
+}
+
+.search-table td {
+  height: 48px;
+  padding: 0 14px;
+  border-bottom: 1px solid #ece8df;
+}
+.search-table tbody tr {
+  cursor: pointer;
+}
+.search-table tbody tr:hover td {
+  background: #fbfaf6;
+}
+.search-table tbody tr.selected td {
+  background: #eef4ff;
+}
+
+/* 메뉴 칸: 아이콘 + 굵은 이름 + 추천 */
+.cell-menu {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.menu-text {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+.cell-menu .thumb-icon {
+  width: 20px;
+  height: 20px;
+  margin-left: -4px;
+}
+
+/* 별점 칸: 색 배지 + 별 */
+.cell-rating {
+  width: 190px;
+  white-space: nowrap;
+}
+.rating-badge {
+  display: inline-block;
+  min-width: 34px;
+  margin-right: 10px;
+  padding: 3px 0;
+  border-radius: 6px;
+  font-size: 12.5px;
+  font-weight: 700;
+  text-align: center;
+  vertical-align: middle;
+}
+.cell-rating .stars {
+  vertical-align: middle;
+}
+
+/* 가격 칸: 작고 연하게 */
+.cell-price {
+  width: 120px;
+  text-align: right;
+  font-size: 13px;
+  color: #8a8478;
+  font-variant-numeric: tabular-nums;
+}
+
+.search-empty {
+  padding: 40px 0;
+  text-align: center;
+  color: #8a8478;
+  font-size: 14px;
+}

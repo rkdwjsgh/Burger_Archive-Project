@@ -69,3 +69,10 @@ export function formatMonthDay(date) {
 export function formatFullDate(date) {
   return date.replaceAll('-', '.');
 }
+
+// 배지 배경색 위에 올릴 글자색 (배경이 밝으면 검정, 어두우면 흰색)
+export function getRatingTextColor(rating) {
+  const [r, g, b] = getRatingColor(rating).match(/\d+/g).map(Number);
+  const brightness = 0.299 * r + 0.587 * g + 0.114 * b;
+  return brightness > 165 ? '#1e1e1e' : '#ffffff';
+}
