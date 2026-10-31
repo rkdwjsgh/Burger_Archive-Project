@@ -1,4 +1,4 @@
-import { toStarParts } from '../utils/rating';
+import { toStarParts } from '../../utils/rating';
 import StarIcon from './StarIcon';
 import './Stars.css';
 

@@ -4,14 +4,14 @@ import { SEARCH, RATING_BANDS } from '../data/searchContent';
 import { BRANDS } from '../utils/brandColors';
 import { getRatingColor, getRatingTextColor } from '../utils/rating';
 import { parseQuery, matchQuery } from '../utils/search';
-import TopBar from '../components/TopBar';
-import MultiSelect from '../components/MultiSelect';
-import SortSelect from '../components/SortSelect';
-import SearchBox from '../components/SearchBox';
-import BrandIcon from '../components/BrandIcon';
-import Stars from '../components/Stars';
-import ThumbUpIcon from '../components/ThumbUpIcon';
-import DetailPanel from '../components/DetailPanel';
+import TopBar from '../components/common/TopBar';
+import MultiSelect from '../components/search/MultiSelect';
+import SortSelect from '../components/search/SortSelect';
+import SearchBox from '../components/search/SearchBox';
+import BrandIcon from '../components/common/BrandIcon';
+import Stars from '../components/common/Stars';
+import ThumbUpIcon from '../components/common/ThumbUpIcon';
+import DetailPanel from '../components/common/DetailPanel';
 import './SearchPage.css';
 
 const ETC = 'etc'; // 목록에 없는 브랜드를 묶는 값

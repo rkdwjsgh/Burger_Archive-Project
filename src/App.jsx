@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import RoadPage from './pages/RoadPage';
 import SearchPage from './pages/SearchPage';
-import GuideModal from './components/GuideModal';
+import GuideModal from "./components/common/GuideModal";
 
 // 주소 끝(#/search)으로 지금 페이지를 정함
 // GitHub Pages에서도 새로고침했을 때 페이지가 유지되도록 # 방식을 사용

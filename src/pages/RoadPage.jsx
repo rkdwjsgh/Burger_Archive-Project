@@ -5,12 +5,12 @@ import '../styles/flow.css';            // 우리 선·연결점 스타일
 
 import burgers from '../data/burgers.json';
 import { buildFlow } from '../utils/buildFlow';
-import BurgerNode from '../components/BurgerNode';
-import MonthNode from '../components/MonthNode';
-import YearNode from '../components/YearNode';
-import TopBar, { YearSelect } from '../components/TopBar';
-import ZoomSlider from '../components/ZoomSlider';
-import DetailPanel from '../components/DetailPanel';
+import BurgerNode from '../components/road/BurgerNode';
+import MonthNode from '../components/road/MonthNode';
+import YearNode from '../components/road/YearNode';
+import TopBar, { YearSelect } from '../components/common/TopBar';
+import ZoomSlider from '../components/road/ZoomSlider';
+import DetailPanel from '../components/common/DetailPanel';
 
 // type 이름 ↔ 컴포넌트 연결표 (컴포넌트 밖에 두어야 매번 새로 만들어지지 않음)
 const nodeTypes = { burger: BurgerNode, month: MonthNode, year: YearNode };

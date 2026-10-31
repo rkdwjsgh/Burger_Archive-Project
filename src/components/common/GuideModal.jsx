@@ -5,7 +5,7 @@ import { COLOR_STOPS } from '../../utils/rating';
 import BrandIcon from './BrandIcon';
 import ThumbUpIcon from './ThumbUpIcon';
 import './GuideModal.css';
-import StarIcon from '../StarIcon';
+import StarIcon from './StarIcon';
 
 
 // 색띠 막대: 카드 색띠와 같은 기준점 색으로 그라데이션

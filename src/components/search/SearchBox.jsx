@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { SEARCH } from '../../data/searchContent';
 import { suggestMenus, normalize } from '../../utils/search';
-import BrandIcon from './BrandIcon';
+import BrandIcon from '../common/BrandIcon';
 import './SearchBox.css';
 
 // 메뉴 이름에서 검색어와 맞는 부분만 굵게

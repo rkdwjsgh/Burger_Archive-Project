@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { DETAIL } from '../../data/detailContent';
 import { formatFullDate } from '../../utils/rating';
 import BrandIcon from './BrandIcon';
-import Stars from '../Stars';
+import Stars from './Stars';
 import ThumbUpIcon from './ThumbUpIcon';
 import './DetailPanel.css';
 
