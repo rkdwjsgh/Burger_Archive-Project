@@ -1,4 +1,4 @@
-import { getBrand } from '../utils/brandColors';
+import { getBrand } from '../../utils/brandColors';
 import './BrandIcon.css';
 
 // 브랜드 아이콘: 색 도형 + 짧은 글자

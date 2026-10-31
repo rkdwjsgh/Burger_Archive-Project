@@ -1,10 +1,10 @@
 import { memo } from 'react';
 import { Handle, Position } from '@xyflow/react';
-import { getRatingColor, formatMonthDay } from '../utils/rating';
-import { splitName } from '../utils/splitName';
+import { getRatingColor, formatMonthDay } from '../../utils/rating';
+import { splitName } from '../../utils/splitName';
 import BrandIcon from './BrandIcon';
 import ThumbUpIcon from './ThumbUpIcon';
-import Stars from './Stars';
+import Stars from '../Stars';
 import './BurgerNode.css';
 
 // 메뉴 이름: 의미 덩어리 사이에서만 줄바꿈

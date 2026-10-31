@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import { SEARCH } from '../data/searchContent';
-import { suggestMenus, normalize } from '../utils/search';
+import { SEARCH } from '../../data/searchContent';
+import { suggestMenus, normalize } from '../../utils/search';
 import BrandIcon from './BrandIcon';
 import './SearchBox.css';
 

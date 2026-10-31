@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { SEARCH } from '../data/searchContent';
+import { SEARCH } from '../../data/searchContent';
 import './MultiSelect.css';
 
 // 체크 목록 필터 (브랜드·연도·별점 공용)

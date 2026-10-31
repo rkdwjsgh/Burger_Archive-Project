@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { SEARCH } from '../data/searchContent';
+import { SEARCH } from '../../data/searchContent';
 import './MultiSelect.css';
 
 // 날짜 정렬 선택 (최신순 / 오래된순)
