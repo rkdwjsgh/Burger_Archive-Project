@@ -1,0 +1,9 @@
+.stars {
+  display: inline-flex;
+  color: #f5b82e;
+}
+.star {
+  display: inline-block;
+  overflow: hidden; /* width를 줄이면 별이 잘려서 일부만 보임 */
+  line-height: 0;
+}

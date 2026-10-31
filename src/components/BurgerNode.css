@@ -57,15 +57,6 @@
   align-items: center;
   gap: 6px;
 }
-.stars {
-  display: inline-flex;
-  color: #f5b82e;
-}
-.star {
-  display: inline-block;
-  overflow: hidden; /* width를 줄이면 별이 잘려서 일부만 보임 */
-  line-height: 0;
-}
 .score {
   font-size: 11px;
   color: #8a8478;

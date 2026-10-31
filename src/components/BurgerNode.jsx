@@ -1,13 +1,11 @@
 import { memo } from 'react';
 import { Handle, Position } from '@xyflow/react';
-import { getRatingColor, toStarParts, formatMonthDay } from '../utils/rating';
+import { getRatingColor, formatMonthDay } from '../utils/rating';
 import { splitName } from '../utils/splitName';
 import BrandIcon from './BrandIcon';
 import ThumbUpIcon from './ThumbUpIcon';
-import StarIcon from './StarIcon';
+import Stars from './Stars';
 import './BurgerNode.css';
-
-const STAR_SIZE = 14; // 별 하나의 크기(px)
 
 // 메뉴 이름: 의미 덩어리 사이에서만 줄바꿈
 function MenuName({ data }) {
@@ -18,19 +16,6 @@ function MenuName({ data }) {
         p.keep ? <span key={i} className="nowrap">{p.text}</span> : p.text
       )}
     </div>
-  );
-}
-
-// 점수만큼만 별을 그리고, 마지막 별은 비율만큼 잘라서 보여줌
-function Stars({ rating }) {
-  return (
-    <span className="stars" aria-label={`5점 만점에 ${rating}점`}>
-      {toStarParts(rating).map((part, i) => (
-        <span key={i} className="star" style={{ width: STAR_SIZE * part }}>
-          <StarIcon size={STAR_SIZE} />
-        </span>
-      ))}
-    </span>
   );
 }
 

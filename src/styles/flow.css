@@ -24,3 +24,14 @@
 .react-flow__node-burger {
   pointer-events: all !important;
 }
+
+/* 카드는 누를 수 있다는 표시 */
+.react-flow__node-burger {
+  cursor: pointer;
+}
+
+/* 상세 패널에 열린 카드 강조 */
+.react-flow__node.is-selected .burger-card {
+  outline: 3px solid #2f6fde;
+  outline-offset: 2px;
+}

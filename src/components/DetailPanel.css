@@ -1,0 +1,166 @@
+.detail-panel {
+  --panel-width: 380px; /* 패널 너비 (App.jsx의 PANEL_W와 같게) */
+
+  position: absolute;
+  top: 56px; /* 상단바 아래 */
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  width: var(--panel-width);
+  max-width: 100vw;
+  overflow-y: auto;
+  padding: 24px;
+  background: #ffffff;
+  border-left: 1px solid #e6e2d8;
+  box-shadow: -8px 0 24px rgba(60, 40, 10, 0.08);
+  animation: detail-slide-in 0.2s ease-out; /* 오른쪽에서 밀려 들어옴 */
+}
+
+@keyframes detail-slide-in {
+  from {
+    transform: translateX(40px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.detail-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  border: none;
+  background: none;
+  font-size: 18px;
+  color: #8a8478;
+  cursor: pointer;
+}
+
+/* ① */
+.detail-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  padding-right: 28px; /* 닫기 버튼 자리 */
+}
+.detail-brand {
+  font-size: 13px;
+  color: #55504a;
+}
+.detail-date {
+  margin-left: auto;
+  font-size: 12px;
+  color: #8a8478;
+}
+
+/* ② */
+.detail-title {
+  margin: 14px 0 8px;
+  font-size: 22px;
+  line-height: 1.3;
+  letter-spacing: -0.4px;
+  word-break: keep-all;
+}
+
+/* ③ */
+.detail-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.detail-rating strong {
+  font-size: 14px;
+}
+.detail-rating small {
+  font-size: 12px;
+  color: #8a8478;
+}
+.detail-recommend {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 10px 0 2px;
+  border-radius: 99px;
+  background: #e8f0ff;
+  color: #2f6fde;
+  font-size: 12px;
+}
+
+/* ④ */
+.detail-comment {
+  margin: 18px 0 0;
+  padding: 12px 14px;
+  border-left: 4px solid #84a792;
+  border-radius: 6px;
+  background: #faf8f3;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ⑤ */
+.detail-info {
+  margin: 18px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid #efebe3;
+  font-size: 13.5px;
+}
+.detail-info div {
+  display: flex;
+  padding: 5px 0;
+}
+.detail-info dt {
+  width: 52px;
+  flex-shrink: 0;
+  color: #8a8478;
+}
+.detail-info dd {
+  margin: 0;
+}
+
+/* ⑥ 안내 + 말풍선 */
+.detail-note {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 8px;
+  font-size: 12px;
+  color: #a39d91;
+  cursor: help;
+  outline: none;
+}
+.detail-tooltip {
+  position: absolute;
+  top: 26px; /* 아이콘 아래로 펼쳐짐 */
+  left: -8px;
+  width: 260px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #1e1e1e;
+  color: #ffffff;
+  font-size: 12.5px;
+  line-height: 1.55;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.12s;
+}
+/* 말풍선 꼬리 (위쪽 ⓘ를 가리킴) */
+.detail-tooltip::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 10px;
+  border: 6px solid transparent;
+  border-top: 0;
+  border-bottom-color: #1e1e1e;
+}
+.detail-note:hover .detail-tooltip,
+.detail-note:focus .detail-tooltip {
+  visibility: visible;
+  opacity: 1;
+}

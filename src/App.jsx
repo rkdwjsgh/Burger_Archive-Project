@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useCallback, useMemo, useRef, useState } from 'react';
 import { ReactFlow, ReactFlowProvider, useReactFlow, useViewport } from '@xyflow/react';
 import '@xyflow/react/dist/style.css'; // React Flow 기본 스타일
 import './styles/flow.css';            // 우리 선·연결점 스타일
@@ -11,6 +11,7 @@ import YearNode from './components/YearNode';
 import TopBar from './components/TopBar';
 import ZoomSlider from './components/ZoomSlider';
 import GuideModal from './components/GuideModal';
+import DetailPanel from './components/DetailPanel';
 
 // type 이름 ↔ 컴포넌트 연결표 (컴포넌트 밖에 두어야 매번 새로 만들어지지 않음)
 const nodeTypes = { burger: BurgerNode, month: MonthNode, year: YearNode };
@@ -23,6 +24,8 @@ const START_LEFT = 80;  // 연도 구분선이 화면 왼쪽에서 떨어질 거
 const MIN_ZOOM = 0.4;
 const MAX_ZOOM = 1.5;
 const MARGIN = { left: 200, right: 400, y: 120 }; // 맵 바깥으로 갈 수 있는 여유
+const PANEL_W = 380;    // 상세 패널 너비 (DetailPanel.css의 --panel-width와 같게)
+const PANEL_GAP = 40;   // 선택한 카드와 패널 사이 최소 여백
 
 // 드래그로 이동할 수 있는 범위
 const translateExtent = [
@@ -49,6 +52,15 @@ function BurgerRoad() {
   const flow = useReactFlow();          // 화면 이동·확대 조작 도구
   const { x, y, zoom } = useViewport(); // 현재 화면 위치·배율 (바뀔 때마다 다시 그려짐)
   const [guideOpen, setGuideOpen] = useState(false);
+  const [selectedId, setSelectedId] = useState(null); // 상세 패널에 열린 노드 id
+
+  // 선택한 카드에만 'is-selected' 표시를 붙인 노드 목록
+  const shownNodes = useMemo(
+    () => nodes.map((n) => (n.id === selectedId ? { ...n, className: 'is-selected' } : n)),
+    [selectedId]
+  );
+  const selectedBurger = nodes.find((n) => n.id === selectedId)?.data;
+  const closePanel = useCallback(() => setSelectedId(null), []);
 
   const width = () => mapRef.current?.clientWidth ?? window.innerWidth;
 
@@ -71,6 +83,25 @@ function BurgerRoad() {
     flow.setViewport({ x: nextX, y, zoom }, { duration: 500 });
   }
 
+  // 카드 클릭 → 상세 패널 열기 / 같은 카드를 다시 누르면 닫기
+  function handleNodeClick(_, node) {
+    if (node.type !== 'burger') return;
+    if (node.id === selectedId) {
+      setSelectedId(null);
+      return;
+    }
+    setSelectedId(node.id);
+
+    // 카드가 패널 뒤에 가려지면 맵을 옮겨서 보이게 함
+    const cardLeft = node.position.x * zoom + x;
+    const cardRight = (node.position.x + node.style.width) * zoom + x;
+    const visibleRight = width() - PANEL_W - PANEL_GAP;
+    let shift = 0;
+    if (cardRight > visibleRight) shift = visibleRight - cardRight; // 왼쪽으로 이동
+    else if (cardLeft < PANEL_GAP) shift = PANEL_GAP - cardLeft;    // 오른쪽으로 이동
+    if (shift !== 0) flow.setViewport({ x: x + shift, y, zoom }, { duration: 300 });
+  }
+
   return (
     <div className="app">
       <TopBar
@@ -83,8 +114,9 @@ function BurgerRoad() {
       {/* 맵 영역: 휠은 여기서만 처리 (상단바·안내 창 위에서는 맵이 안 움직임) */}
       <div className="map" ref={mapRef} onWheel={handleWheel}>
         <ReactFlow
-          nodes={nodes}
+          nodes={shownNodes}
           edges={edges}
+          onNodeClick={handleNodeClick}
           nodeTypes={nodeTypes}
           defaultViewport={defaultViewport}
           translateExtent={translateExtent}
@@ -109,6 +141,8 @@ function BurgerRoad() {
         onChange={(z) => flow.zoomTo(z)}
         onReset={() => flow.zoomTo(1, { duration: 300 })}
       />
+
+      {selectedBurger && <DetailPanel burger={selectedBurger} onClose={closePanel} />}
 
       {guideOpen && <GuideModal onClose={() => setGuideOpen(false)} />}
     </div>

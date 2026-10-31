@@ -64,3 +64,8 @@ export function toStarParts(rating) {
 export function formatMonthDay(date) {
   return date.slice(5).replace('-', '.');
 }
+
+// "2024-06-19" → "2024.06.19"  (상세 패널용, 연도 포함)
+export function formatFullDate(date) {
+  return date.replaceAll('-', '.');
+}
