@@ -5,7 +5,7 @@ export const SEARCH = {
   countText: '{n}개 기록', // {n} 자리에 지금 보이는 기록 수가 들어감
 
   // 검색창 안내 문구 ← 원하는 내용으로 수정
-  placeholder: '메뉴, 한줄평, 브랜드, 추천',
+  placeholder: '메뉴, 한줄평 등으로 검색',
 
   // 검색 키 (검색창에 '메뉴명:새우'처럼 씀)
   keys: {
@@ -44,9 +44,11 @@ export const SEARCH = {
   sortText: {
     newest: '최신순',
     oldest: '오래된순',
-    rating: '별점순',
-    price: '가격순',
-  },
+    ratingDesc: '별점 높은순',
+    ratingAsc: '별점 낮은순',
+    priceDesc: '가격 높은순',
+    priceAsc: '가격 낮은순',
+    },
 
   // 브랜드 목록에서 '그 외'로 보여줄 이름
   etcName: '그 외',

@@ -17,11 +17,13 @@ export default function SortSelect({ sort, onChange }) {
     return () => document.removeEventListener('mousedown', onDown);
   }, [open]);
 
-  // 버튼에 보일 글자: 날짜순이면 최신/오래된, 표 제목으로 정렬 중이면 별점순/가격순
-  const current =
-    sort.key === 'date'
-      ? sort.dir === 'desc' ? SEARCH.sortText.newest : SEARCH.sortText.oldest
-      : SEARCH.sortText[sort.key];
+  // 버튼에 보일 글자: 지금 정렬 기준과 방향에 맞는 이름
+  const LABELS = {
+     date: { desc: SEARCH.sortText.newest, asc: SEARCH.sortText.oldest },
+     rating: { desc: SEARCH.sortText.ratingDesc, asc: SEARCH.sortText.ratingAsc },
+     price: { desc: SEARCH.sortText.priceDesc, asc: SEARCH.sortText.priceAsc },
+  };
+  const current = LABELS[sort.key][sort.dir];
 
   const options = [
     { dir: 'desc', label: SEARCH.sortText.newest },
